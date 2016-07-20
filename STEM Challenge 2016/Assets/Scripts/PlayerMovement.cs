@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
 	
 		player = GetComponent<Rigidbody> ();
-		speed = 10f;
+		speed = 15f;
 		jumpForce = 300f;
 	}
 
