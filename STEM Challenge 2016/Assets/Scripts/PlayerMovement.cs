@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float jumpForce;
 	public bool isFalling = false;
 	public LayerMask groundLayer;
+	public bool gotKey = false;
 
 	void Start () {
 	
@@ -60,4 +61,22 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		player.AddForce (0, jumpForce, 0);
 	}
+
+	void OnTriggerEnter(Collider collider) 
+	{
+		if (collider.gameObject.CompareTag ("Key"))
+		{
+			gotKey = true;
+			collider.gameObject.SetActive (false);
+		}
+
+		if (collider.gameObject.CompareTag ("Lock") && gotKey) {
+			gotKey = false;
+			collider.gameObject.SetActive (false);
+		}
+
+
+	}
+
+
 }
