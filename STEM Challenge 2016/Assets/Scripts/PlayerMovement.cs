@@ -73,6 +73,7 @@ public class PlayerMovement : MonoBehaviour {
 		if (collider.gameObject.CompareTag ("Lock") && gotKey) {
 			gotKey = false;
 			collider.gameObject.SetActive (false);
+
 		}
 
 

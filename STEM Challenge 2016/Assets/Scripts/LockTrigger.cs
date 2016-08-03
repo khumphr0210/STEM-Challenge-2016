@@ -17,7 +17,7 @@ public class LockTrigger : MonoBehaviour {
 		{
 			if (GameObject.Find ("Player").GetComponent<PlayerMovement> ().gotKey) 
 			{
-				Debug.Log ("There is a key. Make collider a trigger now");
+				//Debug.Log ("There is a key. Make collider a trigger now");
 				myCollider.isTrigger = true;
 			} else {
 				myCollider.isTrigger = false;
