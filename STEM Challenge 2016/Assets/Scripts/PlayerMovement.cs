@@ -12,12 +12,16 @@ public class PlayerMovement : MonoBehaviour {
 	public bool isFalling = false;
 	public LayerMask groundLayer;
 	public bool gotKey = false;
+	public bool isPaused;
+	public GameObject pauseMenuOverlay;
 
 	void Start () {
 	
 		player = GetComponent<Rigidbody> ();
 		speed = 15f;
 		jumpForce = 300f;
+		isPaused = false;
+
 	}
 
 	void Update () {
@@ -25,6 +29,36 @@ public class PlayerMovement : MonoBehaviour {
 			{
 				Jump();
 			}
+
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+			StartCoroutine (PauseGame ());
+			Debug.Log ("isPaused: " + isPaused);
+		}
+	}
+
+	IEnumerator PauseGame ()
+	{
+		if (!isPaused) {
+			FadeManager.Instance.Fade (true, 0.25f); //fade to black
+			yield return new WaitForSeconds (0.25f);
+
+			Time.timeScale = 0;
+			Instantiate (pauseMenuOverlay);
+			isPaused = true;
+		} else {
+			Debug.Log ("unpause");
+			isPaused = false;
+			FadeManager.Instance.Fade (true, 0.25f); //fade to black
+			yield return new WaitForSeconds (0.25f);
+
+			Time.timeScale = 1;
+			Destroy (GameObject.Find ("PauseMenuOverlay"));
+		}
+	}
+
+	public void ResumeGame()
+	{
+		StartCoroutine (PauseGame ());
 	}
 
 	void FixedUpdate () {
