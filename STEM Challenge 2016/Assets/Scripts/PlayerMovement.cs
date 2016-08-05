@@ -12,8 +12,10 @@ public class PlayerMovement : MonoBehaviour {
 	public bool isFalling = false;
 	public LayerMask groundLayer;
 	public bool gotKey = false;
-	public bool isPaused;
+	public static bool isPaused;
 	public GameObject pauseMenuOverlay;
+	private GameObject pauseMenuInstance;
+
 
 	void Start () {
 	
@@ -30,35 +32,69 @@ public class PlayerMovement : MonoBehaviour {
 				Jump();
 			}
 
-		if (Input.GetKeyDown(KeyCode.Escape)) {
-			StartCoroutine (PauseGame ());
-			Debug.Log ("isPaused: " + isPaused);
+		if (Input.GetKeyUp(KeyCode.Escape)) {
+			if (!isPaused) {
+				StartCoroutine (PauseGame ());
+			}
+
+			if (isPaused) {
+				//Destroy (pauseMenuInstance);
+				//Time.timeScale = 1;
+				//isPaused = false;
+				//StartCoroutine (UnpauseGame ());
+				UnpauseGame();
+			}
 		}
 	}
 
 	IEnumerator PauseGame ()
 	{
+		//FadeManager.Instance.Fade (true, 0.25f); //fade to black
+		//yield return new WaitForSeconds (0.25f);
+
+		pauseMenuInstance = (GameObject)Instantiate (pauseMenuOverlay);
+		yield return new WaitForSeconds (0.1f);
+		Time.timeScale = 0;
+
+		isPaused = true;
+
+	}
+
+	public void UnpauseGame ()
+	{
+		Time.timeScale = 1;
+		//FadeManager.Instance.Fade (true, 0.25f); //fade to black
+		//yield return new WaitForSeconds (0.25f);
+		Destroy (pauseMenuInstance);
+		isPaused = false;
+	}
+
+	IEnumerator xxxPauseGame ()
+	{
 		if (!isPaused) {
 			FadeManager.Instance.Fade (true, 0.25f); //fade to black
 			yield return new WaitForSeconds (0.25f);
+			pauseMenuInstance = (GameObject)Instantiate (pauseMenuOverlay);
 
 			Time.timeScale = 0;
-			Instantiate (pauseMenuOverlay);
 			isPaused = true;
 		} else {
+			Time.timeScale = 1;
 			Debug.Log ("unpause");
-			isPaused = false;
 			FadeManager.Instance.Fade (true, 0.25f); //fade to black
 			yield return new WaitForSeconds (0.25f);
+			Destroy (pauseMenuInstance);
 
-			Time.timeScale = 1;
-			Destroy (GameObject.Find ("PauseMenuOverlay"));
+			isPaused = false;
 		}
 	}
 
 	public void ResumeGame()
 	{
-		StartCoroutine (PauseGame ());
+		//StartCoroutine (PauseGame ());
+		Destroy(GameObject.FindGameObjectWithTag("Pause"));
+		Time.timeScale = 1;
+		isPaused = false;
 	}
 
 	void FixedUpdate () {
