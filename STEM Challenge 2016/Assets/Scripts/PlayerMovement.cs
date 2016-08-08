@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour {
 	public static bool isPaused;
 	public GameObject pauseMenuOverlay;
 	private GameObject pauseMenuInstance;
+	public GameObject breakLock;
+	public GameObject keyCollect;
 
 
 	void Start () {
@@ -38,10 +40,6 @@ public class PlayerMovement : MonoBehaviour {
 			}
 
 			if (isPaused) {
-				//Destroy (pauseMenuInstance);
-				//Time.timeScale = 1;
-				//isPaused = false;
-				//StartCoroutine (UnpauseGame ());
 				UnpauseGame();
 			}
 		}
@@ -49,9 +47,6 @@ public class PlayerMovement : MonoBehaviour {
 
 	IEnumerator PauseGame ()
 	{
-		//FadeManager.Instance.Fade (true, 0.25f); //fade to black
-		//yield return new WaitForSeconds (0.25f);
-
 		pauseMenuInstance = (GameObject)Instantiate (pauseMenuOverlay);
 		yield return new WaitForSeconds (0.1f);
 		Time.timeScale = 0;
@@ -63,30 +58,8 @@ public class PlayerMovement : MonoBehaviour {
 	public void UnpauseGame ()
 	{
 		Time.timeScale = 1;
-		//FadeManager.Instance.Fade (true, 0.25f); //fade to black
-		//yield return new WaitForSeconds (0.25f);
 		Destroy (pauseMenuInstance);
 		isPaused = false;
-	}
-
-	IEnumerator xxxPauseGame ()
-	{
-		if (!isPaused) {
-			FadeManager.Instance.Fade (true, 0.25f); //fade to black
-			yield return new WaitForSeconds (0.25f);
-			pauseMenuInstance = (GameObject)Instantiate (pauseMenuOverlay);
-
-			Time.timeScale = 0;
-			isPaused = true;
-		} else {
-			Time.timeScale = 1;
-			Debug.Log ("unpause");
-			FadeManager.Instance.Fade (true, 0.25f); //fade to black
-			yield return new WaitForSeconds (0.25f);
-			Destroy (pauseMenuInstance);
-
-			isPaused = false;
-		}
 	}
 
 	public void ResumeGame()
@@ -137,17 +110,23 @@ public class PlayerMovement : MonoBehaviour {
 		if (collider.gameObject.CompareTag ("Key"))
 		{
 			gotKey = true;
+			GameObject keyCollectInstance = (GameObject)Instantiate (keyCollect, collider.gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
 			collider.gameObject.SetActive (false);
+			Destroy (keyCollectInstance, 1f);
 		}
 
 		if (collider.gameObject.CompareTag ("Lock") && gotKey) {
 			gotKey = false;
+			GameObject brokenLockInstance = (GameObject)Instantiate (breakLock, collider.gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
 			collider.gameObject.SetActive (false);
-
+			Destroy (brokenLockInstance, 2f);
 		}
 
 
 	}
-
+	public void QuitGame ()
+	{
+		Application.Quit ();
+	}
 
 }

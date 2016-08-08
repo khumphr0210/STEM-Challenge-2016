@@ -38,4 +38,10 @@ public class playerDeath : MonoBehaviour {
 		FadeManager.Instance.Fade (false, 2.0f); //fade to transparent
 	}
 
+	public void LoadLevelSelect()
+	{
+		Time.timeScale = 1;
+		SceneManager.LoadScene ("LevelSelect");
+		FadeManager.Instance.Fade (false, 2.0f); //fade to transparent
+	}
 }
