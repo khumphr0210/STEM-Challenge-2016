@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
@@ -64,7 +65,7 @@ public class Finish : MonoBehaviour {
 
 		GameObject levelCompleted = (GameObject)Instantiate(levelCompleteMenu);
 		if (SceneManager.GetActiveScene ().buildIndex == 12) {
-			levelCompleted.GetComponentInChildren<Text> ().text = "Congratulations! All levels complete!";
+			levelCompleted.GetComponentInChildren<Text> ().text = "Congratulations..." + Environment.NewLine + "All levels complete!";
 			GameObject.Find ("btnNextLevel").SetActive (false);
 		}
 	}

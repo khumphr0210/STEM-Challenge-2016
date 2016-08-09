@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 47db8168935d3415bb5756fdf691df2a
+timeCreated: 1470709185
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 3
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 1
+  characterPadding: 0
+  includeFontData: 1
+  fontNames:
+  - SF Fourche
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0c7af0c158d5045608ad46a439c1bb2f, type: 3}
+  - {fileID: 12800000, guid: 0f3802652068347bd96da0100b3bd031, type: 3}
+  - {fileID: 12800000, guid: 02f4a7892743e4cc2945c60081fffa51, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
