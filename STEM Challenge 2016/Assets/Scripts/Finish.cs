@@ -13,6 +13,7 @@ public class Finish : MonoBehaviour {
 	void OnTriggerEnter (Collider finish)
 	{
 		levelFinished = true;
+		SFX.Instance.finish.Play ();
 
 		if (PlayerPrefs.GetInt ("HighestLevel") != null) 
 		{

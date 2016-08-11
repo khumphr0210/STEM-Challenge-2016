@@ -111,6 +111,7 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			gotKey = true;
 			GameObject keyCollectInstance = (GameObject)Instantiate (keyCollect, collider.gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
+			SFX.Instance.keyCollect.Play ();
 			collider.gameObject.SetActive (false);
 			Destroy (keyCollectInstance, 1f);
 		}
@@ -118,8 +119,10 @@ public class PlayerMovement : MonoBehaviour {
 		if (collider.gameObject.CompareTag ("Lock") && gotKey) {
 			gotKey = false;
 			GameObject brokenLockInstance = (GameObject)Instantiate (breakLock, collider.gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
+			SFX.Instance.lockExplosion.Play ();
 			collider.gameObject.SetActive (false);
 			Destroy (brokenLockInstance, 2f);
+
 		}
 
 

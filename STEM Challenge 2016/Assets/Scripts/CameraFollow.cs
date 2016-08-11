@@ -3,7 +3,8 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
 
-
+	public float shakeTimer;
+	public float shakeAmount;
 	//public float distanceAway;
 	//public float distanceUp;
 	//public float smooth;
@@ -72,4 +73,21 @@ public class CameraFollow : MonoBehaviour {
 		// Always look at the target
 		transform.LookAt(target);
 	}
+}
+
+void update () 
+{
+	if (shakeTimer >= 0)
+	{
+		Vector2 ShakePos = Random.InsideUnitCircle * shakeAmount;
+	}
+
+	shakeTimer -= Time.deltaTime;
+
+	transform.position = new Vector3(transform.position.x + )
+}
+
+public void (float shakePwr, float shakeDur)
+{
+	
 }

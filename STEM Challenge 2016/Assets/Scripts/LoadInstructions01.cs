@@ -8,6 +8,7 @@ public class LoadInstructions01 : MonoBehaviour {
 	void Start () {
 	
 		FadeManager.Instance.Fade (false, 2.0f);
+		SFX.Instance.secondaryGameMusic.Play ();
 	}
 
 
