@@ -25,7 +25,7 @@ public class playerDeath : MonoBehaviour {
 		Destroy(player);
 		//Time.timeScale = 0;
 		Instantiate(playerDeathMenu);
-		SFX.Instance.FadeSecondaryMusic (true, true, 1.5f, 0);
+		SFX.Instance.FadeSecondaryMusic (true, true, 0.2f, 0);
 		Debug.Log ("Secondary music faded in after death");
 	}
 
@@ -38,10 +38,15 @@ public class playerDeath : MonoBehaviour {
 	public void RetryLevel()
 	{
 		//Time.timeScale = 1;
+		//if (SFX.Instance.secondaryGameMusic.volume < 1) {
+			//SFX.Instance.secondaryGameMusic.volume = 1;
+			//Debug.Log ("Manually set volume to 1");
+		//}
 		SFX.Instance.FadeSecondaryMusic(false, false, 0.5f, SFX.Instance.secondaryGameMusic.volume);
-		Debug.Log ("Faded out secondary music from retry button");
+		//Debug.Log ("Faded out secondary music from retry button");
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 		FadeManager.Instance.Fade (false, 2.0f); //fade to transparent
+		//SFX.Instance.FadeSecondaryMusic(false, false, 0.5f, SFX.Instance.secondaryGameMusic.volume);
 		SFX.Instance.FadeMainMusic(true, true, 1.5f, 0);
 		Debug.Log ("Faded in main music from retry button");
 	}

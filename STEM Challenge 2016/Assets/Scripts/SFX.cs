@@ -222,12 +222,12 @@ public class SFX : MonoBehaviour {
 				yield return null;
 			}
 		} else {
+			Debug.Log ("Fading out");
 			while (secondaryGameMusic.volume > 0.0f) {
 				secondaryGameMusic.volume -= Time.deltaTime / fadeLength;
 				yield return null;
 			}
 			//secondaryGameMusic.Stop ();
-			Debug.Log ("Secondary music stopped");
 		}
 	}
 
