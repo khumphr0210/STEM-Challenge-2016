@@ -42,12 +42,12 @@ public class playerDeath : MonoBehaviour {
 			//SFX.Instance.secondaryGameMusic.volume = 1;
 			//Debug.Log ("Manually set volume to 1");
 		//}
-		SFX.Instance.FadeSecondaryMusic(false, false, 0.5f, SFX.Instance.secondaryGameMusic.volume);
+		SFX.Instance.FadeSecondaryMusic(false, false, 0.2f, SFX.Instance.secondaryGameMusic.volume);
 		//Debug.Log ("Faded out secondary music from retry button");
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 		FadeManager.Instance.Fade (false, 2.0f); //fade to transparent
 		//SFX.Instance.FadeSecondaryMusic(false, false, 0.5f, SFX.Instance.secondaryGameMusic.volume);
-		SFX.Instance.FadeMainMusic(true, true, 1.5f, 0);
+		SFX.Instance.FadeMainMusic(true, true, 0.2f, 0);
 		Debug.Log ("Faded in main music from retry button");
 	}
 
@@ -58,14 +58,14 @@ public class playerDeath : MonoBehaviour {
 		Debug.Log ("Faded out secondary music from retry button");
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 		FadeManager.Instance.Fade (false, 2.0f); //fade to transparent
-		SFX.Instance.FadeMainMusic(true, true, 1.5f, 0);
+		SFX.Instance.FadeMainMusic(true, true, 0.2f, 0);
 		Debug.Log ("Faded in main music from retry button");
 	}
 
 	public void LoadLevelSelect()
 	{
 		//Time.timeScale = 1;
-		SFX.Instance.FadeSecondaryMusic(true, true, 0.5f, 0);
+		SFX.Instance.FadeSecondaryMusic(true, true, 0.2f, 0);
 		SceneManager.LoadScene ("LevelSelect");
 		FadeManager.Instance.Fade (false, 2.0f); //fade to transparent
 
@@ -74,10 +74,10 @@ public class playerDeath : MonoBehaviour {
 	public void LoadLevelSelectFromPause()
 	{
 		Time.timeScale = 1;
-		SFX.Instance.FadeMainMusic (false, false, 0.5f, SFX.Instance.mainGameMusic.volume);
+		SFX.Instance.FadeMainMusic (false, false, 0.2f, SFX.Instance.mainGameMusic.volume);
 		SceneManager.LoadScene ("LevelSelect");
 		FadeManager.Instance.Fade (false, 2.0f); //fade to transparent
-		SFX.Instance.FadeSecondaryMusic(true, true, 1.5f, 0);
+		SFX.Instance.FadeSecondaryMusic(true, true, 0.2f, 0);
 
 	}
 

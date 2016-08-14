@@ -133,13 +133,13 @@ public class LevelScripts : MonoBehaviour {
 	{
 		FadeManager.Instance.Fade (true, 2.0f);
 		//SFX.Instance.levelSelectFadeOutMainGameMusic (1.5f);
-		SFX.Instance.FadeSecondaryMusic(false, false, 1.5f, SFX.Instance.secondaryGameMusic.volume);
+		SFX.Instance.FadeSecondaryMusic(false, false, 0.5f, SFX.Instance.secondaryGameMusic.volume);
 		Debug.Log ("Secondary music faded out from level 1-1 button");
 		yield return new WaitForSeconds (2.0f);
 		SceneManager.LoadScene ("Level01");
 		FadeManager.Instance.Fade (false, 2.0f);
 		//SFX.Instance.levelSelectFadeInMainGameMusic (1.5f);
-		SFX.Instance.FadeMainMusic(true, true, 1.5f, 0);
+		SFX.Instance.FadeMainMusic(true, true, 0.2f, 0);
 		Debug.Log ("Main music faded in for level 1-1");
 		yield return new WaitForSeconds (2.0f);
 	}
@@ -152,12 +152,12 @@ public class LevelScripts : MonoBehaviour {
 	{
 		FadeManager.Instance.Fade (true, 2.0f);
 		//SFX.Instance.levelSelectFadeOutMainGameMusic (1.5f);
-		SFX.Instance.FadeSecondaryMusic(false, false, 1.5f, SFX.Instance.secondaryGameMusic.volume);
+		SFX.Instance.FadeSecondaryMusic(false, false, 0.5f, SFX.Instance.secondaryGameMusic.volume);
 		yield return new WaitForSeconds (2.0f);
 		SceneManager.LoadScene ("Level02");
 		FadeManager.Instance.Fade (false, 2.0f);
 		//SFX.Instance.levelSelectFadeInMainGameMusic (1.5f);
-		SFX.Instance.FadeMainMusic(true, true, 1.5f, 0);
+		SFX.Instance.FadeMainMusic(true, true, 0.2f, 0);
 		yield return new WaitForSeconds (2.0f);
 	}
 
@@ -169,12 +169,12 @@ public class LevelScripts : MonoBehaviour {
 	{
 		FadeManager.Instance.Fade (true, 2.0f);
 		//SFX.Instance.levelSelectFadeOutMainGameMusic (1.5f);
-		SFX.Instance.FadeSecondaryMusic(false, false, 1.5f, SFX.Instance.secondaryGameMusic.volume);
+		SFX.Instance.FadeSecondaryMusic(false, false, 0.5f, SFX.Instance.secondaryGameMusic.volume);
 		yield return new WaitForSeconds (2.0f);
 		SceneManager.LoadScene ("Level03");
 		FadeManager.Instance.Fade (false, 2.0f);
 		//SFX.Instance.levelSelectFadeInMainGameMusic (1.5f);
-		SFX.Instance.FadeMainMusic(true, true, 1.5f, 0);
+		SFX.Instance.FadeMainMusic(true, true, 0.2f, 0);
 		yield return new WaitForSeconds (2.0f);
 	}
 
@@ -186,12 +186,12 @@ public class LevelScripts : MonoBehaviour {
 	{
 		FadeManager.Instance.Fade (true, 2.0f);
 		//SFX.Instance.levelSelectFadeOutMainGameMusic (1.5f);
-		SFX.Instance.FadeSecondaryMusic(false, false, 1.5f, SFX.Instance.secondaryGameMusic.volume);
+		SFX.Instance.FadeSecondaryMusic(false, false, 0.5f, SFX.Instance.secondaryGameMusic.volume);
 		yield return new WaitForSeconds (2.0f);
 		SceneManager.LoadScene ("Level04");
 		FadeManager.Instance.Fade (false, 2.0f);
 		//SFX.Instance.levelSelectFadeInMainGameMusic (1.5f);
-		SFX.Instance.FadeMainMusic(true, true, 1.5f, 0);
+		SFX.Instance.FadeMainMusic(true, true, 0.2f, 0);
 		yield return new WaitForSeconds (2.0f);
 	}
 
@@ -203,12 +203,12 @@ public class LevelScripts : MonoBehaviour {
 	{
 		FadeManager.Instance.Fade (true, 2.0f);
 		//SFX.Instance.levelSelectFadeOutMainGameMusic (1.5f);
-		SFX.Instance.FadeSecondaryMusic(false, false, 1.5f, SFX.Instance.secondaryGameMusic.volume);
+		SFX.Instance.FadeSecondaryMusic(false, false, 0.5f, SFX.Instance.secondaryGameMusic.volume);
 		yield return new WaitForSeconds (2.0f);
 		SceneManager.LoadScene ("Level05");
 		FadeManager.Instance.Fade (false, 2.0f);
 		//SFX.Instance.levelSelectFadeInMainGameMusic (1.5f);
-		SFX.Instance.FadeMainMusic(true, true, 1.5f, 0);
+		SFX.Instance.FadeMainMusic(true, true, 0.2f, 0);
 		yield return new WaitForSeconds (2.0f);
 	}
 
@@ -220,12 +220,12 @@ public class LevelScripts : MonoBehaviour {
 	{
 		FadeManager.Instance.Fade (true, 2.0f);
 		//SFX.Instance.levelSelectFadeOutMainGameMusic (1.5f);
-		SFX.Instance.FadeSecondaryMusic(false, false, 1.5f, SFX.Instance.secondaryGameMusic.volume);
+		SFX.Instance.FadeSecondaryMusic(false, false, 0.5f, SFX.Instance.secondaryGameMusic.volume);
 		yield return new WaitForSeconds (2.0f);
 		SceneManager.LoadScene ("Level06");
 		FadeManager.Instance.Fade (false, 2.0f);
 		//SFX.Instance.levelSelectFadeInMainGameMusic (1.5f);
-		SFX.Instance.FadeMainMusic(true, true, 1.5f, 0);
+		SFX.Instance.FadeMainMusic(true, true, 0.2f, 0);
 		yield return new WaitForSeconds (2.0f);
 	}
 
@@ -237,12 +237,12 @@ public class LevelScripts : MonoBehaviour {
 	{
 		FadeManager.Instance.Fade (true, 2.0f);
 		//SFX.Instance.levelSelectFadeOutMainGameMusic (1.5f);
-		SFX.Instance.FadeSecondaryMusic(false, false, 1.5f, SFX.Instance.secondaryGameMusic.volume);
+		SFX.Instance.FadeSecondaryMusic(false, false, 0.5f, SFX.Instance.secondaryGameMusic.volume);
 		yield return new WaitForSeconds (2.0f);
 		SceneManager.LoadScene ("Level07");
 		FadeManager.Instance.Fade (false, 2.0f);
 		//SFX.Instance.levelSelectFadeInMainGameMusic (1.5f);
-		SFX.Instance.FadeMainMusic(true, true, 1.5f, 0);
+		SFX.Instance.FadeMainMusic(true, true, 0.2f, 0);
 		yield return new WaitForSeconds (2.0f);
 	}
 
@@ -254,12 +254,12 @@ public class LevelScripts : MonoBehaviour {
 	{
 		FadeManager.Instance.Fade (true, 2.0f);
 		//SFX.Instance.levelSelectFadeOutMainGameMusic (1.5f);
-		SFX.Instance.FadeSecondaryMusic(false, false, 1.5f, SFX.Instance.secondaryGameMusic.volume);
+		SFX.Instance.FadeSecondaryMusic(false, false, 0.5f, SFX.Instance.secondaryGameMusic.volume);
 		yield return new WaitForSeconds (2.0f);
 		SceneManager.LoadScene ("Level08");
 		FadeManager.Instance.Fade (false, 2.0f);
 		//SFX.Instance.levelSelectFadeInMainGameMusic (1.5f);
-		SFX.Instance.FadeMainMusic(true, true, 1.5f, 0);
+		SFX.Instance.FadeMainMusic(true, true, 0.2f, 0);
 		yield return new WaitForSeconds (2.0f);
 	}
 
@@ -271,12 +271,12 @@ public class LevelScripts : MonoBehaviour {
 	{
 		FadeManager.Instance.Fade (true, 2.0f);
 		//SFX.Instance.levelSelectFadeOutMainGameMusic (1.5f);
-		SFX.Instance.FadeSecondaryMusic(false, false, 1.5f, SFX.Instance.secondaryGameMusic.volume);
+		SFX.Instance.FadeSecondaryMusic(false, false, 0.5f, SFX.Instance.secondaryGameMusic.volume);
 		yield return new WaitForSeconds (2.0f);
 		SceneManager.LoadScene ("Level09");
 		FadeManager.Instance.Fade (false, 2.0f);
 		//SFX.Instance.levelSelectFadeInMainGameMusic (1.5f);
-		SFX.Instance.FadeMainMusic(true, true, 1.5f, 0);
+		SFX.Instance.FadeMainMusic(true, true, 0.2f, 0);
 		yield return new WaitForSeconds (2.0f);
 	}
 
@@ -288,12 +288,12 @@ public class LevelScripts : MonoBehaviour {
 	{
 		FadeManager.Instance.Fade (true, 2.0f);
 		//SFX.Instance.levelSelectFadeOutMainGameMusic (1.5f);
-		SFX.Instance.FadeSecondaryMusic(false, false, 1.5f, SFX.Instance.secondaryGameMusic.volume);
+		SFX.Instance.FadeSecondaryMusic(false, false, 0.5f, SFX.Instance.secondaryGameMusic.volume);
 		yield return new WaitForSeconds (2.0f);
 		SceneManager.LoadScene ("Level10");
 		FadeManager.Instance.Fade (false, 2.0f);
 		//SFX.Instance.levelSelectFadeInMainGameMusic (1.5f);
-		SFX.Instance.FadeMainMusic(true, true, 1.5f, 0);
+		SFX.Instance.FadeMainMusic(true, true, 0.2f, 0);
 		yield return new WaitForSeconds (2.0f);
 	}
 }

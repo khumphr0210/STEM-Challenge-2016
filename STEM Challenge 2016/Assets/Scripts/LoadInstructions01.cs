@@ -48,11 +48,11 @@ public class LoadInstructions01 : MonoBehaviour {
 	IEnumerator FadeLoadFade ()
 	{
 		FadeManager.Instance.Fade(true, 2.0f); //fade to black
-		SFX.Instance.FadeSecondaryMusic(false, false, 1.5f, SFX.Instance.secondaryGameMusic.volume);
+		SFX.Instance.FadeSecondaryMusic(false, false, 0.5f, SFX.Instance.secondaryGameMusic.volume);
 		yield return new WaitForSeconds(2.0f);
 		SceneManager.LoadScene ("Instructions01");
 		FadeManager.Instance.Fade (false, 2.0f); //fade to transparent
-		SFX.Instance.FadeSecondaryMusic(true, true, 0.5f, 0);
+		SFX.Instance.FadeSecondaryMusic(true, true, 0.2f, 0);
 
 	}
 
@@ -61,11 +61,11 @@ public class LoadInstructions01 : MonoBehaviour {
 	IEnumerator FadeLastLoadedLevel ()
 	{
 		FadeManager.Instance.Fade(true, 2.0f); //fade to black
-		SFX.Instance.FadeSecondaryMusic(false, false, 1.5f, SFX.Instance.secondaryGameMusic.volume);
+		SFX.Instance.FadeSecondaryMusic(false, false, 0.5f, SFX.Instance.secondaryGameMusic.volume);
 		yield return new WaitForSeconds(2.0f);
 		SceneManager.LoadScene (PlayerPrefs.GetInt ("LastLoadedLevel"));
 		FadeManager.Instance.Fade (false, 2.0f); //fade to transparent
-		SFX.Instance.FadeMainMusic(true, true, 0.5f, 0);
+		SFX.Instance.FadeMainMusic(true, true, 0.2f, 0);
 
 	}
 }

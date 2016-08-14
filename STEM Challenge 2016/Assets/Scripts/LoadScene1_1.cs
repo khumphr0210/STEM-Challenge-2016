@@ -19,11 +19,11 @@ public class LoadScene1_1 : MonoBehaviour {
 	IEnumerator LoadLevel()
 	{
 		FadeManager.Instance.Fade(true, 2.0f); //fade to black
-		SFX.Instance.FadeSecondaryMusic(false, false, 1.5f, SFX.Instance.secondaryGameMusic.volume);
+		SFX.Instance.FadeSecondaryMusic(false, false, 0.5f, SFX.Instance.secondaryGameMusic.volume);
 		yield return new WaitForSeconds(2.0f);
 		SceneManager.LoadScene ("Level01");
 		FadeManager.Instance.Fade (false, 2.0f); //fade to transparent
-		SFX.Instance.FadeMainMusic(true, true, 1.5f, 0);
+		SFX.Instance.FadeMainMusic(true, true, 0.2f, 0);
 	}
 	
 
