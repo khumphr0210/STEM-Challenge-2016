@@ -17,10 +17,7 @@ public class FadeManager : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		DontDestroyOnLoad(transform.gameObject);
-
 		Instance = this;
-
-
 	}
 
 	public void Fade (bool showing, float duration)
@@ -59,5 +56,4 @@ public class FadeManager : MonoBehaviour {
 			isInTransition = false;
 		}
 	}
-
 }

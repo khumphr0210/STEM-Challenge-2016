@@ -18,6 +18,12 @@ public class PlayerMovement : MonoBehaviour {
 	public GameObject breakLock;
 	public GameObject keyCollect;
 
+	//public CameraFollow followCam;
+
+	//void Awake()
+	//{
+		//followCam = (GameObject)CameraFollow.FindObjectOfType<Camera>();
+	//}
 
 	void Start () {
 	
@@ -48,25 +54,39 @@ public class PlayerMovement : MonoBehaviour {
 	IEnumerator PauseGame ()
 	{
 		pauseMenuInstance = (GameObject)Instantiate (pauseMenuOverlay);
+		StartCoroutine (PauseMusic ());
 		yield return new WaitForSeconds (0.1f);
 		Time.timeScale = 0;
 
 		isPaused = true;
 
 	}
+	IEnumerator PauseMusic()
+	{
+		//SFX.Instance.pauseFadeOutMainGameMusic (0.09f);
+		SFX.Instance.FadeMainMusicFromPause(false, 0.09f, SFX.Instance.mainGameMusic.volume);
+		yield return null;
+	}
 
 	public void UnpauseGame ()
 	{
 		Time.timeScale = 1;
 		Destroy (pauseMenuInstance);
+		StartCoroutine (UnpauseMusic ());
 		isPaused = false;
+	}
+	IEnumerator UnpauseMusic()
+	{
+		//SFX.Instance.pauseFadeInMainGameMusic (0.09f);
+		SFX.Instance.FadeMainMusicFromPause(true, 0.09f, SFX.Instance.mainGameMusic.volume);
+		yield return null;
 	}
 
 	public void ResumeGame()
 	{
-		//StartCoroutine (PauseGame ());
 		Destroy(GameObject.FindGameObjectWithTag("Pause"));
 		Time.timeScale = 1;
+		SFX.Instance.mainGameMusic.volume = 1;
 		isPaused = false;
 	}
 
@@ -121,6 +141,7 @@ public class PlayerMovement : MonoBehaviour {
 			GameObject brokenLockInstance = (GameObject)Instantiate (breakLock, collider.gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
 			SFX.Instance.lockExplosion.Play ();
 			collider.gameObject.SetActive (false);
+			//followCam.ShakeCamera (0.3f, 1f);
 			Destroy (brokenLockInstance, 2f);
 
 		}

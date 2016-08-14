@@ -3,16 +3,6 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
 
-	public float shakeTimer;
-	public float shakeAmount;
-	//public float distanceAway;
-	//public float distanceUp;
-	//public float smooth;
-	//public Transform follow;
-	//private Vector3 targetPosition;
-
-	//public GameObject player;
-	//private Vector3 offset;
 
 	// The target we are following
 	[SerializeField]
@@ -29,18 +19,7 @@ public class CameraFollow : MonoBehaviour {
 	[SerializeField]
 	private float heightDamping;
 
-	//void Start()
-	//{
-		//offset = transform.position - player.transform.position;
-	//}
-
 	void LateUpdate () {
-	
-		//targetPosition = follow.position + follow.up * distanceUp - follow.forward * distanceAway;
-		//transform.position = Vector3.Lerp (transform.position, targetPosition, Time.deltaTime * smooth);
-		//transform.LookAt (follow);
-
-		//transform.position = player.transform.position + offset;
 
 		// Early out if we don't have a target
 		if (!target)
@@ -74,20 +53,4 @@ public class CameraFollow : MonoBehaviour {
 		transform.LookAt(target);
 	}
 }
-
-void update () 
-{
-	if (shakeTimer >= 0)
-	{
-		Vector2 ShakePos = Random.InsideUnitCircle * shakeAmount;
-	}
-
-	shakeTimer -= Time.deltaTime;
-
-	transform.position = new Vector3(transform.position.x + )
-}
-
-public void (float shakePwr, float shakeDur)
-{
 	
-}

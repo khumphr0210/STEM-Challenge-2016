@@ -18,9 +18,11 @@ public class Finish : MonoBehaviour {
 		if (PlayerPrefs.GetInt ("HighestLevel") != null) 
 		{
 
-			if (PlayerPrefs.GetInt ("HighestLevel") < SceneManager.GetActiveScene ().buildIndex || PlayerPrefs.GetInt ("HighestLevel") != 12) 
+			if (PlayerPrefs.GetInt ("HighestLevel") < SceneManager.GetActiveScene ().buildIndex) 
 			{
-				PlayerPrefs.SetInt ("HighestLevel", SceneManager.GetActiveScene ().buildIndex +1);
+				if (PlayerPrefs.GetInt ("HighestLevel") != 12) {
+					PlayerPrefs.SetInt ("HighestLevel", SceneManager.GetActiveScene ().buildIndex + 1);
+				}
 			}
 
 		} 
@@ -59,9 +61,16 @@ public class Finish : MonoBehaviour {
 	IEnumerator FadeToBlack ()
 	{
 		FadeManager.Instance.Fade(true, 3.0f); //fade to black
+		//SFX.Instance.finsihFadeOutMainGameMusic(0.5f);
+		SFX.Instance.FadeMainMusic(false, false, 0.5f, SFX.Instance.mainGameMusic.volume);
+		Debug.Log("Main game music faded out");
+		//SFX.Instance.finishFadeInSecondaryGameMusic (3.5f);
+		Debug.Log ("Secondary game music faded in");
 		yield return new WaitForSeconds(3.0f);
+		SFX.Instance.FadeSecondaryMusic(true, true, 1.5f, 0);
 
-		Time.timeScale = 0;
+
+		//Time.timeScale = 0;
 		//Instantiate(levelCompleteMenu);
 
 		GameObject levelCompleted = (GameObject)Instantiate(levelCompleteMenu);
@@ -93,21 +102,36 @@ public class Finish : MonoBehaviour {
 	public void RetryLevel()
 	{
 		Time.timeScale = 1;
+		//SFX.Instance.finsihFadeOutSecondaryGameMusic (0.5f);
+		SFX.Instance.FadeSecondaryMusic(false, false, 0.5f, SFX.Instance.secondaryGameMusic.volume);
+		Debug.Log("Secondary game music faded out");
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 		FadeManager.Instance.Fade (false, 2.0f); //fade to transparent
+		//SFX.Instance.finishFadeInMainGameMusic(1.5f);
+		SFX.Instance.FadeMainMusic(true, true, 1.5f, 0);
+		Debug.Log("Main game music faded in");
 	}
+
 	public void NextLevel ()
 	{
 		Time.timeScale = 1;
+		//SFX.Instance.finsihFadeOutSecondaryGameMusic (0.5f);
+		SFX.Instance.FadeSecondaryMusic(false, false, 0.5f, SFX.Instance.secondaryGameMusic.volume);
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
 		FadeManager.Instance.Fade (false, 2.0f); //fade to transparent
+		//SFX.Instance.finishFadeInMainGameMusic(1.5f);
+		SFX.Instance.FadeMainMusic(true, true, 1.5f, 0);
 
 	}
 
 	public void LoadLevelSelect()
 	{
 		Time.timeScale = 1;
+		SFX.Instance.FadeSecondaryMusic(true, true, 1.5f, 0);
+		//SFX.Instance.finsihFadeOutSecondaryGameMusic (0.5f);
+		//SFX.Instance.FadeSecondaryMusic(false, false, 0.5f, SFX.Instance.secondaryGameMusic.volume);
 		SceneManager.LoadScene ("LevelSelect");
 		FadeManager.Instance.Fade (false, 2.0f); //fade to transparent
+		//SFX.Instance.finishFadeInSecondaryGameMusic(1.5f);
 	}
 }
