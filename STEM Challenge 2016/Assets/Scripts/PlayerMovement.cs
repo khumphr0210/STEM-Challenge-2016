@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour {
 	//public float horizontalSpeed;
 	//public float verticalSpeed;
 	public float speed;
-	private Rigidbody player;
+	public Rigidbody player;
 	public float jumpForce;
 	public bool isFalling = false;
 	public LayerMask groundLayer;
@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour {
 	private GameObject pauseMenuInstance;
 	public GameObject breakLock;
 	public GameObject keyCollect;
+    public VirtualJoystick joyStick;
 
 	//public CameraFollow followCam;
 
@@ -91,9 +92,11 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-	
-		float moveHorizontal = Input.GetAxis("Horizontal");
-		float moveVertical = Input.GetAxis("Vertical");
+
+        //float moveHorizontal = Input.GetAxis("Horizontal");
+        //float moveVertical = Input.GetAxis("Vertical");
+        float moveHorizontal = joyStick.Horizontal();
+        float moveVertical = joyStick.Vertical();
 
 		Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
@@ -120,7 +123,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 	}
 
-	void Jump ()
+	public void Jump ()
 	{
 		player.AddForce (0, jumpForce, 0);
 	}
