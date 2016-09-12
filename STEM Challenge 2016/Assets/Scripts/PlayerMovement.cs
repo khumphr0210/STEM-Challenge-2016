@@ -125,6 +125,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void Jump ()
 	{
+        if(!isFalling)
 		player.AddForce (0, jumpForce, 0);
 	}
 
